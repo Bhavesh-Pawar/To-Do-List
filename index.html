@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap.css">
+    <style>
+        
+        li
+        {
+            color:darkgray;
+        }
+    </style>
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            $('#add').click(function()
+            {
+                var frt=$('#fruit').val();
+                $('#addFruit').append('<li>'+frt+'</li>');
+                $('#fruit').val("");
+            });
+                       $('#delete').click(function()
+            {
+                $('li').last().remove();
+            });
+            $('#deleteAll').click(function()
+            {
+                $('ol').empty();
+            });
+        });
+    </script>
+</head>
+<body >
+    <div class="container">
+        <div class="row justify-content-center">
+            <h3 class="text-success">To Do List</h3>
+        </div>
+        <div class="row justify-content-center m-2">   
+                <textarea name="text1" placeholder="Add Task" id="fruit" cols="30" rows="5"></textarea>
+        </div>
+        <hr>
+        <div class="row justify-content-between m-2">  
+                <button id="add" class="btn btn-sm btn-primary">add</button>
+                <button id="delete"  class="btn btn-sm btn-warning">delete</button>
+                <button id="deleteAll"  class="btn btn-sm btn-danger">deleteAll</button>
+        </div>
+        <div class="row m-2">
+
+            <ol id="addFruit"></ol>
+        </div>
+    </div>
+</body>
+</html>
