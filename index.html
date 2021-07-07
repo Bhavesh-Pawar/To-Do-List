@@ -19,8 +19,11 @@
             $('#add').click(function()
             {
                 var frt=$('#fruit').val();
-                $('#addFruit').append('<li>'+frt+'</li>');
+                if(frt!="")
+                {
+                    $('#addFruit').append('<li>'+frt+'</li>');
                 $('#fruit').val("");
+                }
             });
                        $('#delete').click(function()
             {
