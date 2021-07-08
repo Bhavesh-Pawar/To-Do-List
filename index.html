@@ -39,20 +39,14 @@
                 var n=$('#serial').val();
                 $('li').eq(parseInt(n)-1).remove();
             });
-            var n,edit,newText;
-            $('#edit').click(function()
-            {
-                 n=$('#serial').val();
-                edit=$('li').eq(parseInt(n)-1).text();
-                $('#new').text(edit);
-            });
             $('#makeChange').click(function()
             {
-                $('li').eq(parseInt(n)-1).text("");
+                var x =$('#serial').val();
                 newText=$('#new').val();
-                $('li').eq(parseInt(n)-1).text(newText);
-                $('#new').val("");
+                if(newText!="")
+                    $('li').eq(parseInt(x)-1).text(newText);
                 $('#serial').val("");
+                $('#new').val("");
             });
         });
         
@@ -74,9 +68,8 @@
         </div>
         <hr>
         <div class="row justify-content-between m-2">
-            <textarea name="text1" placeholder="Enter task no. to be edited" id="serial" cols="30" rows="1"></textarea>
-            <button id="edit" class="btn btn-sm btn-success m-2">edit</button>
-            <textarea name="text2" placeholder="Enter new edited task" id="new" cols="30" rows="1"></textarea>
+            <textarea class="m-2" name="text1" placeholder="Enter task no. to be edited" id="serial" cols="30" rows="1"></textarea>
+            <textarea class="m-2" name="text2" placeholder="Enter new edited task" id="new" cols="30" rows="1"></textarea>
         <button id="makeChange" class="btn btn-sm btn-success m-2">makeChange</button>
         </div>
         <hr>
