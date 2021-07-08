@@ -39,6 +39,20 @@
                 var n=$('#serial').val();
                 $('li').eq(parseInt(n)-1).remove();
             });
+            var n,edit,newText;
+            $('#edit').click(function()
+            {
+                 n=$('#serial').val();
+                edit=$('li').eq(parseInt(n)-1).text();
+                $('#new').text(edit);
+            });
+            $('#makeChange').click(function()
+            {
+                $('li').eq(parseInt(n)-1).text("");
+                newText=$('#new').val();
+                $('li').eq(parseInt(n)-1).text(newText);
+                $('#new').val("");
+            });
         });
         
     </script>
@@ -59,9 +73,12 @@
         </div>
         <hr>
         <div class="row justify-content-between m-2">
-            <textarea name="text1" placeholder="Enter task no. to be deleted" id="serial" cols="30" rows="1"></textarea>
-        <button id="delete" class="btn btn-success m-2">delete</button>
+            <textarea name="text1" placeholder="Enter task no. to be edited" id="serial" cols="30" rows="1"></textarea>
+            <button id="edit" class="btn btn-sm btn-success m-2">edit</button>
+            <textarea name="text2" placeholder="Enter new edited task" id="new" cols="30" rows="1"></textarea>
+        <button id="makeChange" class="btn btn-sm btn-success m-2">makeChange</button>
         </div>
+        <hr>
         <div class="row m-3">
 
             <ol id="addFruit"></ol>
