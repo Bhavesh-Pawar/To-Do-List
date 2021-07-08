@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List</title>
+    <title>Document</title>
     <link rel="stylesheet" href="./bootstrap.css">
     <style>
-        
-        li
+        textarea
         {
-            color:darkgray;
+            resize: none;
         }
-    </style>
+    </style>    
     <script src="jquery.js"></script>
     <script>
+        
         $(document).ready(function()
         {
+        
             $('#add').click(function()
             {
                 var frt=$('#fruit').val();
@@ -25,7 +26,7 @@
                 $('#fruit').val("");
                 }
             });
-                       $('#delete').click(function()
+            $('#deleteLast').click(function()
             {
                 $('li').last().remove();
             });
@@ -33,24 +34,35 @@
             {
                 $('ol').empty();
             });
+            $('#delete').click(function()
+            {
+                var n=$('#serial').val();
+                $('li').eq(parseInt(n)-1).remove();
+            });
         });
+        
     </script>
 </head>
-<body >
+<body ">
     <div class="container">
         <div class="row justify-content-center">
             <h3 class="text-success">To Do List</h3>
         </div>
         <div class="row justify-content-center m-2">   
-                <textarea name="text1" placeholder="Add Task" id="fruit" cols="30" rows="5"></textarea>
+                <textarea  name="text1" placeholder="Add Task" id="fruit" cols="30" rows="5"></textarea>
         </div>
         <hr>
         <div class="row justify-content-between m-2">  
                 <button id="add" class="btn btn-sm btn-primary">add</button>
-                <button id="delete"  class="btn btn-sm btn-warning">delete</button>
+                <button id="deleteLast"  class="btn btn-sm btn-warning">deleteLast</button>
                 <button id="deleteAll"  class="btn btn-sm btn-danger">deleteAll</button>
         </div>
-        <div class="row m-2">
+        <hr>
+        <div class="row justify-content-between m-2">
+            <textarea name="text1" placeholder="Enter task no. to be deleted" id="serial" cols="30" rows="1"></textarea>
+        <button id="delete" class="btn btn-success">delete</button>
+        </div>
+        <div class="row m-3">
 
             <ol id="addFruit"></ol>
         </div>
