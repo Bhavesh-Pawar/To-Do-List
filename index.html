@@ -16,6 +16,7 @@
         
         $(document).ready(function()
         {
+            $('#addFruit').html(localStorage.getItem("todo"));
             $('#change').hide();
             $('#deleteChange').toggle();
             $('#add').click(function()
@@ -58,6 +59,11 @@
             {
                 $('#deleteChange').slideToggle();
             });
+            $('#saveAll').click(function()
+            {
+            localStorage.setItem("todo",document.getElementById('addFruit').innerHTML);   
+            document.getElementById('addFruit').innerHTML= localStorage.getItem("todo");
+            });
         });
         
     </script>
@@ -75,11 +81,12 @@
                 <button id="add" class="btn btn-sm btn-primary">add</button>
                 <button id="deleteLast"  class="btn btn-sm btn-warning">deleteLast</button>
                 <button id="deleteAll"  class="btn btn-sm btn-danger">deleteAll</button>
+                <button id="saveAll"  class="btn btn-sm btn-success">Save</button>
         </div>
         <hr>
         <div class="row justify-content-between m-2">
-            <button id="showEdit" class="btn btn-sm btn-primary m-2">Click me for editing task</button>
-            <button id="showDelete" class="btn btn-sm btn-danger m-2">Click me for deleting task</button>
+            <button id="showEdit" class="btn btn-sm btn-primary">Click me for editing task</button>
+            <button id="showDelete" class="btn btn-sm btn-danger">Click me for deleting task</button>
         </div>
         <div id="change" class="row justify-content-between m-2">
             <textarea class="m-2" name="text1" placeholder="Enter task no. to be edited" id="serial" cols="30" rows="1"></textarea>
